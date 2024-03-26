@@ -17,6 +17,7 @@ pipeline {
     }
     stage("Build Application"){
       steps{
+        sudo "mvn clean package"
       }
     }
   }
