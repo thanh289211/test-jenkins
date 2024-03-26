@@ -12,7 +12,7 @@ pipeline {
     }
     stage("Clone from github"){
       steps{
-        git branch: 'dev', credentialsId: 'github_thanh289211', url: 'https://github.com/thanh289211/test-jenkins.git'
+        git branch: 'main', credentialsId: 'github_thanh289211', url: 'https://github.com/thanh289211/test-jenkins.git'
       }
     }
     stage("Build Application"){
