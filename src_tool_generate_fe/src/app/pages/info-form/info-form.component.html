@@ -1,0 +1,185 @@
+<ng-container>
+  <div
+    style="
+      display: flex;
+      justify-content: center;
+      background-color: #fcedeb;
+      height: fit-content;
+    "
+  >
+    <form
+      nz-form
+      [formGroup]="form"
+      (ngSubmit)="submitForm()"
+      style="
+        background-color: white;
+        justify-content: center;
+        align-items: center;
+        margin: 30px;
+        border-radius: 30px;
+        height: fit-content;
+      "
+    >
+      <div style="width: 80%; padding: 40px">
+        <h5>Spring Version</h5>
+        <nz-form-item>
+          <nz-form-control>
+            <nz-radio-group formControlName="springVersion">
+              <label nz-radio [nzValue]="o.value" *ngFor="let o of springVersion">{{ o.label }}</label>
+            </nz-radio-group>
+          </nz-form-control>
+        </nz-form-item>
+        <h5>Angular Version</h5>
+        <nz-form-item>
+          <nz-form-control>
+            <nz-radio-group formControlName="angularVersion">
+              <label nz-radio [nzValue]="o.value" *ngFor="let o of angularVersion">{{ o.label }}</label>
+            </nz-radio-group>
+          </nz-form-control>
+        </nz-form-item>
+        <h5>Java Version</h5>
+        <nz-form-item>
+          <nz-form-control>
+            <nz-radio-group formControlName="javaVersion">
+              <label nz-radio [nzValue]="o.value" *ngFor="let o of javaVersion">{{ o.label }}</label>
+            </nz-radio-group>
+          </nz-form-control>
+        </nz-form-item>
+        <h5>Project Metadata</h5>
+        <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="artifactID"
+            >Artifact ID</nz-form-label
+          >
+          <nz-form-control
+            [nzSm]="15"
+            [nzXs]="24"
+            nzErrorTip="The input is not valid"
+          >
+            <input
+              nz-input
+              formControlName="artifactID"
+              id="artifactID"
+              placeholder="Enter artifact ID"
+            />
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="groupId"
+            >Group Id</nz-form-label
+          >
+          <nz-form-control [nzSm]="15" [nzXs]="24">
+            <input
+              nz-input
+              formControlName="groupId"
+              id="groupId"
+              placeholder="Enter group Id"
+            />
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="name"
+            >Name</nz-form-label
+          >
+          <nz-form-control [nzSm]="15" [nzXs]="24">
+            <input
+              nz-input
+              type="text"
+              formControlName="name"
+              id="name"
+              placeholder="Enter name"
+            />
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="description"
+            >Description</nz-form-label
+          >
+          <nz-form-control [nzSm]="15" [nzXs]="24">
+            <input
+              nz-input
+              type="text"
+              formControlName="description"
+              id="description"
+              placeholder="Enter description"
+            />
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="packageName"
+            >Package Name</nz-form-label
+          >
+          <nz-form-control [nzSm]="15" [nzXs]="24">
+            <input
+              nz-input
+              type="text"
+              formControlName="packageName"
+              id="packageName"
+              placeholder="Enter packageName"
+            />
+          </nz-form-control>
+        </nz-form-item>
+        <h5>Database Info</h5>
+        <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="databaseType"
+            >Database Type</nz-form-label
+          >
+          <nz-form-control [nzSm]="15" [nzXs]="24">
+            <nz-select formControlName="databaseType" id="databaseType">
+              <nz-option *ngFor="let p of databaseType" [nzValue]="p.value" [nzLabel]="p.label"></nz-option>
+            </nz-select>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="databaseUrl"
+            >Database Url</nz-form-label
+          >
+          <nz-form-control [nzSm]="15" [nzXs]="24">
+            <input
+              nz-input
+              type="text"
+              formControlName="databaseUrl"
+              id="databaseUrl"
+              placeholder="Enter database url"
+            />
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="username"
+            >Username</nz-form-label
+          >
+          <nz-form-control [nzSm]="15" [nzXs]="24">
+            <input
+              nz-input
+              type="text"
+              formControlName="username"
+              id="username"
+              placeholder="Enter db username"
+            />
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password"
+            >Password</nz-form-label
+          >
+          <nz-form-control [nzSm]="15" [nzXs]="24">
+            <input
+              nz-input
+              type="password"
+              formControlName="password"
+              id="password"
+              placeholder="Enter db password"
+            />
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control
+            [nzSm]="{ span: 26, offset: 11 }"
+            [nzXs]="{ span: 24, offset: 0 }"
+          >
+            <button nz-button nzType="primary" type="submit">Submit</button>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+    </form>
+  </div>
+</ng-container>
