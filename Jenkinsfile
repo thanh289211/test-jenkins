@@ -17,12 +17,14 @@ pipeline {
     }
     stage("Build Application"){
       steps{
-        sh "mvn clean package"
+        dir(/var/jenkins_home/workspace/Tool-gen/src_tool_generate_be){
+          sh "mvn clean package"
+        }
       }
     }
     stage("Test Application"){
        steps {
-        sh "mvn test"
+         sh "mvn test"
        }
     }
   }
