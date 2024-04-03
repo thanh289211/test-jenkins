@@ -30,19 +30,18 @@ pipeline {
         }
       }
     }
-    stage('Build') {
-            agent {
-                docker {
-                    image 'gradle:8.2.0-jdk17-alpine'
-                    // Run the container on the node specified at the
-                    // top-level of the Pipeline, in the same workspace,
-                    // rather than on a new node entirely:
-                    reuseNode true
-                }
-            }
-            steps {
-                sh 'gradle --version'
-            }
+    stage("Build & Push Docker Image") {
+      steps {
+        script {
+          docker.withRegistry('',DOCKER_PASS) {
+            docker_image = docker.build "${IMAGE_NAME}"
+          }
+          docker.withRegistry('',DOCKER_PASS) {
+            docker_image.push("${IMAGE_TAG}")
+            docker_image.push('latest')
+          }
         }
+      }
+    }
   }
 }
