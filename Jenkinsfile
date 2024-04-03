@@ -5,7 +5,7 @@ pipeline {
     maven 'Maven'
   }
   environment {
-	  APP_NAME = "src_tool_generate_be"
+    APP_NAME = "src_tool_generate_be"
     RELEASE = "0.1.0"
     DOCKER_USER = "monkeyboss21102"
     DOCKER_PASS = 'dockerhub'
